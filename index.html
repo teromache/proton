@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA Proton - Authorized Proton Dealer</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --proton-blue: #003087;
+            --proton-yellow: #FFD700;
+            --dark-bg: #1a1a1a;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--proton-blue) 0%, #0047AB 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            transition: all 0.3s;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--proton-yellow) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #003087 0%, #0047AB 100%);
+            color: white;
+            padding: 60px 0 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            transition: all 0.3s;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="%23ffffff"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .btn-primary-custom {
+            background: var(--proton-yellow);
+            color: var(--proton-blue);
+            padding: 12px 40px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary-custom:hover {
+            background: #FFC700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            padding: 12px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--proton-blue);
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px 10px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effect */
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SA Introduction Section */
+        .sa-intro-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .sa-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .sa-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--proton-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .sa-title {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .sa-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--proton-blue) 0%, #0047AB 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--proton-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Models Section */
+        .models-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--proton-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin: 15px;
+            height: calc(100% - 30px);
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 20px;
+        }
+
+        /* Modal Styling */
+        .modal-body table {
+            text-align: center;
+        }
+
+        .modal-body table th {
+            text-align: center;
+            background: var(--proton-blue);
+            color: white;
+        }
+
+        .modal-body table tbody tr:nth-child(odd) {
+            background: #f8f9fa;
+        }
+
+        .modal-title {
+            color: var(--proton-blue);
+            font-weight: 700;
+        }
+
+        .modal-footer {
+            justify-content: center;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 3px solid var(--proton-blue);
+        }
+
+        .car-card-body {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--proton-blue);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-new {
+            background: #ff4444;
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .car-price {
+            font-size: 1.3rem;
+            color: var(--proton-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-monthly {
+            font-size: 1.1rem;
+            color: var(--proton-yellow);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .car-monthly small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .car-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .car-features li {
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .car-features li i {
+            color: var(--proton-blue);
+            margin-right: 8px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--proton-blue) 0%, #0047AB 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--proton-blue);
+            margin-bottom: 1rem;
+        }
+
+        .feature-text {
+            color: #666;
+        }
+
+        /* Promotion Section */
+        .promotion-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: var(--proton-blue);
+        }
+
+        .promo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: calc(100% - 30px);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--proton-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            height: calc(100% - 30px);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-rating {
+            color: var(--proton-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #333;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--proton-blue);
+        }
+
+        .testimonial-model {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Carousel Controls Customization */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--proton-blue);
+            border-radius: 50%;
+            padding: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            background-color: var(--proton-yellow);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--proton-blue);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--proton-yellow);
+        }
+
+        #testimonialCarousel {
+            padding: 0 50px;
+        }
+
+        @media (max-width: 768px) {
+            #testimonialCarousel {
+                padding: 0 20px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 10%;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--proton-blue) 0%, #0047AB 100%);
+            color: white;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--proton-yellow);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: #20BA5A;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--proton-yellow);
+            transform: scale(1.2);
+        }
+
+        /* Card base */
+        .car-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* Hover lift */
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image zoom */
+        .car-card img {
+            transition: transform 0.6s ease;
+        }
+
+        .car-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Animate when visible */
+        .car-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delay (auto ikut position) */
+        .car-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .car-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .car-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .car-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .car-card:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .car-card:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+
+        .stat-main-card {
+            background: linear-gradient(135deg, #003087 0%, #0047AB 100%);
+            border-radius: 22px;
+            padding: 35px 25px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .stat-main-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item {
+            color: #fff;
+            padding: 18px 10px;
+            border-radius: 14px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-6px);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hero-video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .video-wrapper {
+                margin-top: 30px;
+            }
+
+            .navbar-brand img {
+                height: 35px !important;
+            }
+
+            .sa-description {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cms-assets.proton.com/proton-cms-blob/media/mlvmigt0/proton-logo.png"
+                    alt="Proton Logo" style="height: 40px; filter: brightness(0) invert(1);">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#models">Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#promotions">Promosi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Perkhidmatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Hubungi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">INSPIRING CONNECTIONS</h1>
+                    <h3 style="color: var(--proton-yellow); margin-bottom: 1rem;">Mudah, Pantas & Profesional</h3>
+                    <p class="hero-subtitle">Dapatkan kereta Proton impian anda dengan mudah! Kami bantu dari pemilihan
+                        model, pembiayaan hingga penghantaran. Jimat Sehingga RM20,000 - Year End Sales!</p>
+                    <div class="mt-4">
+                        <a href="#models" class="btn btn-primary-custom me-3 mb-3">
+                            <i class="bi bi-car-front"></i> Lihat Model
+                        </a>
+                        <a href="https://wa.me/60123456789" class="btn btn-outline-custom mb-3" target="_blank">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-video-wrapper">
+                       <iframe width="830" height="467" src="https://www.youtube.com/embed/MuePehFw6wg" title="All-New SAGA | A National Icon Reimagined" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SA Introduction Section -->
+    <section class="sa-intro-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="Sales Advisor Kereta"
+                        class="sa-image">
+                    <h3 class="sa-name mt-3">Ahmad Syafiq</h3>
+                    <p class="sa-title">Sales Advisor Proton</p>
+                </div>
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Kenapa Pilih Saya?</h2>
+                    <p class="sa-description">Saya Ahmad Syafiq, Sales Advisor Proton yang berpengalaman lebih 5 tahun
+                        dalam industri automotif. Komited untuk membantu anda mendapatkan kereta impian dengan
+                        perkhidmatan yang mudah, pantas dan profesional. Dari pemilihan model, pembiayaan hingga
+                        penghantaran - saya akan pastikan pengalaman anda lancar dan memuaskan!</p>
+
+                    <div class="row mt-4 justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="stat-main-card">
+                                <div class="row text-center">
+
+                                    <div class="col-6 col-md-3 mb-3">
+                                        <div class="stat-item">
+                                            <div class="stat-number" data-target="500">0</div>
+                                            <div class="stat-label">Kereta Terjual</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-md-3 mb-3">
+                                        <div class="stat-item">
+                                            <div class="stat-number" data-target="98">0%</div>
+                                            <div class="stat-label">Kereta Lulus</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-md-3 mb-3">
+                                        <div class="stat-item">
+                                            <div class="stat-number" data-target="5">0</div>
+                                            <div class="stat-label">Tahun Pengalaman</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-md-3 mb-3">
+                                        <div class="stat-item">
+                                            <div class="stat-number" data-target="450">0</div>
+                                            <div class="stat-label">Pelanggan Puas Hati</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="models-section">
+        <div class="container">
+            <h2 class="section-title">Model Terkini Proton</h2>
+            <p class="section-subtitle">Pilih kereta Proton yang sesuai dengan keperluan dan bajet anda</p>
+
+            <div class="row">
+                <!-- Proton X70 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/jvxdeajm/model-x70.png"
+                            alt="Proton X70">
+                        <div class="car-card-body">
+                            <h3 class="car-title">Proton X70</h3>
+                            <div class="car-price">Dari RM 98,800*</div>
+                            <div class="car-monthly">RM 1,136/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.5L Turbo Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Speed DCT</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ADAS Level 2</li>
+                                <li><i class="bi bi-check-circle-fill"></i> N95 Cabin Filter</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalX70">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton X50 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/wxaip352/model-x50-01-copy.png"
+                            alt="All-New Proton X50">
+                        <div class="car-card-body">
+                            <h3 class="car-title">
+                                <span>All-New X50</span>
+                                <span class="badge-new">NEW</span>
+                            </h3>
+                            <div class="car-price">Dari RM 86,300*</div>
+                            <div class="car-monthly">RM 941/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.5L TGDI Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Speed DCT</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Panoramic Sunroof</li>
+                                <li><i class="bi bi-check-circle-fill"></i> N95 Cabin Filter</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalX50">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton Saga -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/yileabdk/model-saga_360x200.png"
+                            alt="All-New Proton Saga">
+                        <div class="car-card-body">
+                            <h3 class="car-title">
+                                <span>All-New SAGA</span>
+                                <span class="badge-new">NEW</span>
+                            </h3>
+                            <div class="car-price">Dari RM 36,800*</div>
+                            <div class="car-monthly">RM 381/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.3L VVT Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> CVT Transmission</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Fuel Efficient</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 6 Airbags</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalSaga">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton Persona -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/xvldb2h0/model-persona.png"
+                            alt="Proton Persona">
+                        <div class="car-card-body">
+                            <h3 class="car-title">Proton Persona</h3>
+                            <div class="car-price">Dari RM 47,800*</div>
+                            <div class="car-monthly">RM 522/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.6L VVT Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> CVT Transmission</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Spacious Boot</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Touchscreen Display</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalPersona">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton e.MAS 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://emas.proton.com/wp-content/uploads/2024/12/eMAS7_PREMIUM.png"
+                            alt="Proton e.MAS 7">
+                        <div class="car-card-body">
+                            <h3 class="car-title">
+                                <span>Proton e.MAS 7</span>
+                                <span class="badge-new">NEW</span>
+                            </h3>
+                            <div class="car-price">Dari RM 106,800*</div>
+                            <div class="car-monthly">RM 1,200/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> Full Electric SUV</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Seater</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Advanced Technology</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Premium Features</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalEMAS7">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton X90 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/u44nyhlr/model-x90.png"
+                            alt="Proton X90">
+                        <div class="car-card-body">
+                            <h3 class="car-title">Proton X90</h3>
+                            <div class="car-price">Dari RM 123,800*</div>
+                            <div class="car-monthly">RM 1,323/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.5L Turbo Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Speed DCT</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Seater SUV</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Premium Interior</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalX90">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton Iriz -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/iqalhsmy/model-iriz.png"
+                            alt="Proton Iriz">
+                        <div class="car-card-body">
+                            <h3 class="car-title">Proton Iriz</h3>
+                            <div class="car-price">Dari RM 42,800*</div>
+                            <div class="car-monthly">RM 468/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.3L / 1.6L VVT</li>
+                                <li><i class="bi bi-check-circle-fill"></i> CVT Transmission</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Compact Hatchback</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Stylish Design</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalIriz">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proton S70 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="https://cms-assets.proton.com/proton-cms-blob/media/01re31dd/model-s70.png"
+                            alt="Proton S70">
+                        <div class="car-card-body">
+                            <h3 class="car-title">Proton S70</h3>
+                            <div class="car-price">Dari RM 73,800*</div>
+                            <div class="car-monthly">RM 790/bulan <small>(anggaran)</small></div>
+                            <ul class="car-features">
+                                <li><i class="bi bi-check-circle-fill"></i> 1.5L Turbo Engine</li>
+                                <li><i class="bi bi-check-circle-fill"></i> 7-Speed DCT</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Premium Sedan</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Advanced Safety</li>
+                            </ul>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal"
+                                data-bs-target="#modalS70">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotion Section -->
+    <section id="promotions" class="promotion-section">
+        <div class="container">
+            <h2 class="section-title">Promosi Terkini</h2>
+            <p class="section-subtitle">Dapatkan tawaran istimewa dan jimat besar dengan promosi terkini kami!</p>
+
+            <div class="row mt-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-gift-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">Year End Sales</h4>
+                        <p class="promo-text">Jimat sehingga RM20,000 untuk model-model terpilih. Promosi terhad!</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-trophy-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">WIN KAW KAW!</h4>
+                        <p class="promo-text">Test drive dan menang hadiah bernilai RM602,300! Jangan lepaskan peluang
+                            ini.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-credit-card-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">Step Up Financing</h4>
+                        <p class="promo-text">Pakej pembiayaan fleksibel dengan bayaran bulanan yang rendah dan mudah.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-ev-front-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">Free Tolls + TnG eWallet</h4>
+                        <p class="promo-text">Percuma tol selama 3 bulan + kredit TnG eWallet untuk X50!</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-mortarboard-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">Fresh Grads Package</h4>
+                        <p class="promo-text">Jimat lebih RM4,500 khas untuk graduan baru. Syarat-syarat terpakai.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="promo-card">
+                        <i class="bi bi-droplet-fill" style="font-size: 2.5rem; color: var(--proton-blue);"></i>
+                        <h4 class="promo-title mt-3">Proton Genuine Oil</h4>
+                        <p class="promo-text">Ganjaran istimewa dengan Shell Fully Synthetic Package untuk kereta anda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Perkhidmatan Kami</h2>
+            <p class="section-subtitle">Kami sedia membantu anda dari A hingga Z - Mudah, Pantas & Profesional!</p>
+
+            <div class="row mt-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                        <h4 class="feature-title">Pemilihan Kereta</h4>
+                        <p class="feature-text">Kami bantu anda pilih model yang sesuai dengan keperluan dan bajet anda
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <h4 class="feature-title">Bantuan Loan</h4>
+                        <p class="feature-text">Pembiayaan mudah & pantas dengan pelbagai bank. Kelulusan cepat!</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </div>
+                        <h4 class="feature-title">Trade-In Tinggi</h4>
+                        <p class="feature-text">Dapatkan harga trade-in terbaik untuk kereta lama anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="feature-title">Insurance Renewal</h4>
+                        <p class="feature-text">Bantuan pembaharuan insurans dengan harga kompetitif</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h4 class="feature-title">Test Drive</h4>
+                        <p class="feature-text">Tempah test drive dengan mudah di lokasi pilihan anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4 class="feature-title">Penghantaran</h4>
+                        <p class="feature-text">Penghantaran kereta terus ke rumah atau pejabat anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4 class="feature-title">MyProton App</h4>
+                        <p class="feature-text">Aplikasi digital untuk tempahan servis dan tracking kereta anda</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4 class="feature-title">Khidmat Pelanggan</h4>
+                        <p class="feature-text">Sokongan penuh sebelum & selepas pembelian. Kami sentiasa sedia
+                            membantu!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <p class="section-subtitle">Kepuasan pelanggan adalah keutamaan kami</p>
+
+            <div id="testimonialCarousel" class="carousel slide mt-5" data-bs-ride="carousel" data-bs-interval="3000">
+                <!-- <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div> -->
+
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Perkhidmatan yang sangat baik! Proses pembelian mudah
+                                        dan pantas. Saya sangat berpuas hati dengan kereta X50 saya."</p>
+                                    <div class="testimonial-author">Ahmad Razak</div>
+                                    <div class="testimonial-model">Proton X50 Premium</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Sales advisor sangat membantu dalam proses loan.
+                                        Trade-in pun dapat harga yang tinggi. Highly recommended!"</p>
+                                    <div class="testimonial-author">Siti Nurhaliza</div>
+                                    <div class="testimonial-model">Proton X70 Executive</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Kereta hantar terus ke rumah, jimat masa! Semua proses
+                                        dibuat dengan profesional. Terima kasih SA Proton!"</p>
+                                    <div class="testimonial-author">Kumar S.</div>
+                                    <div class="testimonial-model">Proton S70 Flagship</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"First time buyer, tapi proses sangat mudah. Dapat loan
+                                        dalam masa 2 hari sahaja. Service excellent!"</p>
+                                    <div class="testimonial-author">Nurul Ain</div>
+                                    <div class="testimonial-model">Proton Saga Premium</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Harga paling competitive! After sales service pun
+                                        terbaik. Akan recommend kepada kawan-kawan."</p>
+                                    <div class="testimonial-author">Lee Wei Ming</div>
+                                    <div class="testimonial-model">Proton X90 Flagship</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Dapat promosi Fresh Grad, jimat banyak! Team SA Proton
+                                        very helpful, explain everything dengan detail."</p>
+                                    <div class="testimonial-author">Farah Natasha</div>
+                                    <div class="testimonial-model">Proton Persona Premium</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-white">Hubungi Kami</h2>
+            <p class="section-subtitle text-white-50">Kami sedia membantu anda dengan sebarang pertanyaan</p>
+
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Maklumat Perhubungan</h4>
+
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <h6>Alamat</h6>
+                                <p>No. 123, Jalan Proton, Taman Perindustrian,<br>40000 Shah Alam, Selangor</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <h6>Telefon</h6>
+                                <p>1-800-88-8398 (Hotline Proton)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-whatsapp"></i>
+                            <div>
+                                <h6>WhatsApp</h6>
+                                <p>+6012-345 6789<br><small>Terus chat untuk maklumat pantas!</small></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>info@saproton.com<br>sales@saproton.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-clock-fill"></i>
+                            <div>
+                                <h6>Waktu Operasi</h6>
+                                <p>Isnin - Jumaat: 9:00 AM - 7:00 PM<br>Sabtu - Ahad: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Hantar Pertanyaan</h4>
+                        <form>
+                            <input type="text" class="form-control" placeholder="Nama Penuh" required>
+                            <input type="email" class="form-control" placeholder="Email" required>
+                            <input type="tel" class="form-control" placeholder="No. Telefon" required>
+                            <select class="form-control" required>
+                                <option value="">Pilih Model Berminat</option>
+                                <option value="x90">Proton X90 - RM 123,800</option>
+                                <option value="emas7">Proton e.MAS 7 - RM 106,800 (NEW)</option>
+                                <option value="x70">Proton X70 - RM 98,800</option>
+                                <option value="x50">All-New X50 - RM 86,300 (NEW)</option>
+                                <option value="s70">Proton S70 - RM 73,800</option>
+                                <option value="persona">Proton Persona - RM 47,800</option>
+                                <option value="iriz">Proton Iriz - RM 42,800</option>
+                                <option value="saga">All-New SAGA - RM 36,800 (NEW)</option>
+                            </select>
+                            <textarea class="form-control" rows="4" placeholder="Mesej (Optional)"></textarea>
+                            <button type="submit" class="btn btn-primary-custom w-100 mt-2">Hantar Pertanyaan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2025 SA Proton. Hak Cipta Terpelihara. | Pengedar Proton Sah</p>
+        </div>
+    </footer>
+
+    <!-- Modals untuk Detail Kereta -->
+    <!-- Modal e.MAS 7 -->
+    <div class="modal fade" id="modalEMAS7" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton e.MAS 7 - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>e.MAS 7 PRIME</td>
+                                <td>RM 106,800.00</td>
+                                <td>TBC</td>
+                            </tr>
+                            <tr>
+                                <td>e.MAS 7 PREMIUM</td>
+                                <td>RM 119,800.00</td>
+                                <td>TBC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20e.MAS%207"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal X90 -->
+    <div class="modal fade" id="modalX90" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton X90 - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.5 TGDI BEG Standard</td>
+                                <td>RM 123,800.00</td>
+                                <td>RM 127,593.17</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 TGDI BEG Executive</td>
+                                <td>RM 130,800.00</td>
+                                <td>RM 134,760.34</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 TGDI BEG Premium</td>
+                                <td>RM 144,800.00</td>
+                                <td>RM 149,063.46</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 TGDI BEG Flagship</td>
+                                <td>RM 152,800.00</td>
+                                <td>RM 157,408.10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20X90"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal X70 -->
+    <div class="modal fade" id="modalX70" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton X70 - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.5 TGDi Standard</td>
+                                <td>RM 98,800.00</td>
+                                <td>RM 101,991.76</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 TGDi Executive</td>
+                                <td>RM 108,800.00</td>
+                                <td>RM 112,428.74</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 TGDi Premium</td>
+                                <td>RM 123,800.00</td>
+                                <td>RM 127,593.78</td>
+                            </tr>
+                            <tr>
+                                <td>1.6 TGDi Flagship X</td>
+                                <td>RM 126,800.00</td>
+                                <td>RM 130,678.02</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20X70"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal X50 -->
+    <div class="modal fade" id="modalX50" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">All-New Proton X50 - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.5 MT1 Standard</td>
+                                <td>RM 86,300.00</td>
+                                <td>RM 89,026.74</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 MT1 Executive</td>
+                                <td>RM 93,300.00</td>
+                                <td>RM 96,223.30</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 MT1 Premium</td>
+                                <td>RM 101,800.00</td>
+                                <td>RM 104,976.02</td>
+                            </tr>
+                            <tr>
+                                <td>1.5 MT1 Flagship</td>
+                                <td>RM 113,300.00</td>
+                                <td>RM 116,784.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20X50"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal S70 -->
+    <div class="modal fade" id="modalS70" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton S70 - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.5T Executive</td>
+                                <td>RM 73,800.00</td>
+                                <td>RM 76,169.78</td>
+                            </tr>
+                            <tr>
+                                <td>1.5T Premium</td>
+                                <td>RM 80,800.00</td>
+                                <td>RM 83,356.56</td>
+                            </tr>
+                            <tr>
+                                <td>1.5T Flagship</td>
+                                <td>RM 89,800.00</td>
+                                <td>RM 92,639.06</td>
+                            </tr>
+                            <tr>
+                                <td>1.5T Flagship X</td>
+                                <td>RM 94,800.00</td>
+                                <td>RM 97,779.46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20S70"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Saga -->
+    <div class="modal fade" id="modalSaga" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">All-New Proton SAGA - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.3 Standard MT</td>
+                                <td>RM 36,800.00</td>
+                                <td>RM 38,060.42</td>
+                            </tr>
+                            <tr>
+                                <td>1.3 Standard AT</td>
+                                <td>RM 38,300.00</td>
+                                <td>RM 40,172.74</td>
+                            </tr>
+                            <tr>
+                                <td>1.3 Premium AT</td>
+                                <td>RM 41,800.00</td>
+                                <td>RM 43,356.98</td>
+                            </tr>
+                            <tr>
+                                <td>1.3 Premium S AT</td>
+                                <td>RM 44,800.00</td>
+                                <td>RM 46,341.22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20SAGA"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Persona -->
+    <div class="modal fade" id="modalPersona" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton Persona - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.6 CVT Standard</td>
+                                <td>RM 47,800.00</td>
+                                <td>RM 49,431.62</td>
+                            </tr>
+                            <tr>
+                                <td>1.6 CVT Executive</td>
+                                <td>RM 53,300.00</td>
+                                <td>RM 55,100.01</td>
+                            </tr>
+                            <tr>
+                                <td>1.6 CVT Premium</td>
+                                <td>RM 58,300.00</td>
+                                <td>RM 60,240.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20Persona"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Iriz -->
+    <div class="modal fade" id="modalIriz" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Proton Iriz - Variant & Harga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Harga (Tanpa Insurans)</th>
+                                <th>OTR dengan Insurans</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.3 CVT Standard</td>
+                                <td>RM 42,800.00</td>
+                                <td>RM 44,386.02</td>
+                            </tr>
+                            <tr>
+                                <td>1.6 CVT Executive</td>
+                                <td>RM 50,300.00</td>
+                                <td>RM 52,015.88</td>
+                            </tr>
+                            <tr>
+                                <td>1.6 CVT Premium</td>
+                                <td>RM 57,300.00</td>
+                                <td>RM 59,376.42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-3"><small>*Harga tertakluk kepada perubahan tanpa notis</small></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://wa.me/60123456789?text=Hi,%20saya%20berminat%20dengan%20Proton%20Iriz"
+                        class="btn btn-primary-custom" target="_blank">WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/60123456789?text=Hi%20SA%20Proton,%20saya%20berminat%20untuk%20dapatkan%20maklumat%20lanjut."
+        class="whatsapp-float" target="_blank" title="WhatsApp Kami">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll('.car-card');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mainCard = document.querySelector(".stat-main-card");
+            const numbers = document.querySelectorAll(".stat-number");
+
+            const animateNumber = (el) => {
+                const target = parseInt(el.dataset.target);
+                const isPercent = el.innerText.includes('%');
+                let count = 0;
+                const speed = 300;
+
+                const update = () => {
+                    const inc = Math.ceil(target / speed);
+                    count += inc;
+
+                    if (count < target) {
+                        el.innerText = count + (isPercent ? '%' : '');
+                        requestAnimationFrame(update);
+                    } else {
+                        el.innerText = target + (isPercent ? '%' : '+');
+                    }
+                };
+                update();
+            };
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+
+                        numbers.forEach(num => {
+                            if (!num.classList.contains("done")) {
+                                num.classList.add("done");
+                                animateNumber(num);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(mainCard);
+        });
+    </script>
+
+</body>
+
+</html>
